@@ -10,12 +10,16 @@ const contactRouter = express.Router();
 
 contactRouter.get("/", ctrl.listContacts);
 
-contactRouter.get("/:id", ctrl.getContactById);
-
-contactRouter.delete("/:id", ctrl.removeContact);
+contactRouter.get("/:contactId", ctrl.getContactById);
 
 contactRouter.post("/", validateBody(schemas.addSchema), ctrl.addContact);
 
-contactRouter.put("/:id", validateBody(schemas.addSchema), ctrl.updateContact);
+contactRouter.put(
+  "/:contactId",
+  validateBody(schemas.addSchema),
+  ctrl.updateContact
+);
+
+contactRouter.delete("/:contactId", ctrl.removeContact);
 
 module.exports = contactRouter;
