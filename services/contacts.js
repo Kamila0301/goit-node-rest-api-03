@@ -16,6 +16,7 @@ const contactSchema = new Schema(
     },
     phone: {
       type: String,
+      match: /^\(\d{3}\)\s\d{3}-\d{4}$/,
       required: [true, "Set phone number ((000) 000-0000) for contact"],
     },
     favorite: {
